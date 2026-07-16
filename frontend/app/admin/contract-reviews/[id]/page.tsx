@@ -1,4 +1,7 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
+import { AGREEMENTS, COMPANIES, PMIS } from '@/lib/mockData';
+import ContractReviewDetailClient from './ContractReviewDetailClient';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -7,14 +10,20 @@ interface PageProps {
 export default async function ContractReviewDetailPage({ params }: PageProps) {
   const { id } = await params;
 
+  // Look up target agreement request in the mock dataset
+  const agreement = AGREEMENTS.find((a) => a.id === id);
+  if (!agreement) {
+    notFound();
+  }
+
+  const pmi = PMIS.find((p) => p.id === agreement.pmiId);
+  const company = COMPANIES.find((c) => c.id === agreement.companyId);
+
   return (
-    <div className="bg-white border border-[#ccd0d4] p-5 shadow-sm">
-      <h2 className="text-[16px] font-bold text-[#1d2327] mb-2">
-        Detail Pengajuan Perjanjian: #{id}
-      </h2>
-      <p className="text-zinc-600 text-[13px]">
-        Ini adalah halaman rincian untuk pengajuan perjanjian kerja dengan ID <strong>{id}</strong>. Peninjauan, catatan keputusan, dan aksi persetujuan/penolakan akan ditambahkan di sini pada fase berikutnya.
-      </p>
-    </div>
+    <ContractReviewDetailClient
+      agreement={agreement}
+      pmi={pmi}
+      company={company}
+    />
   );
 }

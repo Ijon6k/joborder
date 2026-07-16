@@ -50,10 +50,10 @@ export default function Sidebar() {
         </div>
         
         <div className="text-center w-full">
-          <h1 className="text-white font-bold text-sm tracking-wide uppercase">
+          <h1 className="text-white font-semibold text-sm tracking-wide uppercase">
             SIPELMI
           </h1>
-          <p className="text-[#8ea3c4] text-[10px] uppercase font-semibold tracking-wider mt-0.5">
+          <p className="text-[#8ea3c4] text-[10px] uppercase font-medium tracking-wider mt-0.5">
             Admin Pemerintah
           </p>
         </div>
@@ -69,9 +69,9 @@ export default function Sidebar() {
             <Link
               key={item.name}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-2.5 text-[13px] font-medium transition-all duration-100 border-l-[4px] relative ${
+              className={`flex items-center gap-3 px-4 py-2.5 text-[13px] font-normal transition-all duration-100 border-l-[4px] relative ${
                 isActive
-                  ? 'bg-[#2c3338] text-white border-[#72aee6] font-semibold'
+                  ? 'bg-[#2c3338] text-white border-[#72aee6] font-medium'
                   : 'border-transparent text-[#dbe4f2] hover:bg-[#2c3338] hover:text-[#72aee6]'
               }`}
             >
@@ -86,13 +86,13 @@ export default function Sidebar() {
       <div className="border-t border-white/5 bg-[#171c1f]">
         <div className="px-4 py-3 text-[11px] text-[#6f84a8] leading-relaxed">
           Masuk sebagai:
-          <span className="block text-[#d7e2f5] font-semibold text-[12px] mt-0.5">
+          <span className="block text-[#d7e2f5] font-medium text-[12px] mt-0.5">
             Admin BP2MI
           </span>
         </div>
         <Link
           href="/"
-          className="flex items-center gap-3 px-4 py-3 text-[12px] text-red-400 hover:text-red-300 hover:bg-red-500/10 border-t border-white/5 transition-colors font-medium"
+          className="flex items-center gap-3 px-4 py-3 text-[12px] text-red-400 hover:text-red-300 hover:bg-red-500/10 border-t border-white/5 transition-colors font-normal"
         >
           <LogOut className="w-[14px] h-[14px] flex-shrink-0" />
           Keluar Akun

@@ -1,14 +1,79 @@
+'use client';
+
 import React from 'react';
+import { useRouter } from 'next/navigation';
+import { COMPANIES, CASES } from '@/lib/mockData';
 
 export default function CompaniesPage() {
+  const router = useRouter();
+
   return (
-    <div className="bg-white border border-[#ccd0d4] p-5 shadow-sm">
-      <h2 className="text-[16px] font-bold text-[#1d2327] mb-2">
-        Direktori Perusahaan
-      </h2>
-      <p className="text-zinc-600 text-[13px]">
-        Ini adalah halaman Direktori Perusahaan. Daftar seluruh perusahaan penempatan terdaftar akan ditampilkan di sini pada fase berikutnya.
-      </p>
+    <div className="space-y-4 text-[#1d2327]">
+      {/* Page description */}
+      <div className="mb-4">
+        <h2 className="text-[18px] font-bold text-[#1d2327]">
+          Direktori Perusahaan Penempatan
+        </h2>
+        <p className="text-[#5b6474] text-[13px] mt-1">
+          Seluruh perusahaan penempatan terdaftar di portal SIPELMI. Klik nama perusahaan untuk melihat profil lengkap, riwayat kasus, dan mengubah status kepatuhan.
+        </p>
+      </div>
+
+      {/* Main List Table Card */}
+      <div className="bg-white border border-[#ccd0d4] rounded-none shadow-none overflow-hidden">
+        <table className="w-full border-collapse text-left text-[13px]">
+          <thead>
+            <tr className="bg-[#f6f7f7] border-b border-[#ccd0d4] text-[11px] font-bold text-[#5b6474] select-none">
+              <th className="px-5 py-3">Nama Perusahaan</th>
+              <th className="px-5 py-3">NIB</th>
+              <th className="px-5 py-3">SIP3MI</th>
+              <th className="px-5 py-3">Status</th>
+              <th className="px-5 py-3">Laporan (Ditinjau/Total)</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-[#e5e5e5] font-normal">
+            {COMPANIES.map((item) => {
+              // Calculate case counters
+              const totalCases = CASES.filter((c) => c.companyId === item.id).length;
+              const reviewedCases = CASES.filter((c) => c.companyId === item.id && c.statusTinjauan === 'ditinjau').length;
+
+              return (
+                <tr
+                  key={item.id}
+                  onClick={() => router.push(`/admin/companies/${item.id}`)}
+                  className="hover:bg-[#f6f7f7]/60 cursor-pointer transition-colors duration-75"
+                >
+                  <td className="px-5 py-3.5 font-semibold text-[#1f5aa8] hover:underline">
+                    {item.nama}
+                  </td>
+                  <td className="px-5 py-3.5 text-[#5b6474]">
+                    {item.nib}
+                  </td>
+                  <td className="px-5 py-3.5 text-[#5b6474]">
+                    {item.sip3mi}
+                  </td>
+                  <td className="px-5 py-3.5">
+                    <span
+                      className={`inline-flex px-2 py-0.5 rounded-none text-[11px] font-normal uppercase border ${
+                        item.status === 'blacklist'
+                          ? 'bg-red-50 text-red-700 border-red-200'
+                          : item.status === 'netral'
+                          ? 'bg-green-50 text-green-700 border-green-200'
+                          : 'bg-zinc-50 text-[#54606e] border-zinc-200'
+                      }`}
+                    >
+                      {item.status === 'tidak_cukup_info' ? 'Tidak Cukup Info' : item.status}
+                    </span>
+                  </td>
+                  <td className="px-5 py-3.5 text-[#5b6474] font-medium">
+                    {reviewedCases} / {totalCases}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

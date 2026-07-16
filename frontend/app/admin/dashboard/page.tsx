@@ -1,16 +1,50 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
+import { COMPANIES, CASES, AGREEMENTS, PMIS } from '@/lib/mockData';
 
 export default function DashboardPage() {
-  // Mock data for lower table
-  const pendingContracts = [
-    { name: 'Ahmad Fauzi', company: 'PT. Maju Bersama', job: 'Construction Worker', date: '14 Jul 2026' },
-    { name: 'Siti Aminah', company: 'PT. Global Penempatan', job: 'Domestic Helper', date: '15 Jul 2026' },
-    { name: 'Budi Santoso', company: 'PT. Sejahtera Jaya', job: 'Factory Operator', date: '16 Jul 2026' },
-  ];
+  const router = useRouter();
 
-  // Bar heights mapping to mock chart values (value / 500 * 100%)
+  // 1. Calculate dynamic counts from mockData
+  const pendingCasesCount = CASES.filter((c) => c.statusTinjauan === 'menunggu').length;
+  const pendingAgreementsCount = AGREEMENTS.filter((a) => a.status === 'menunggu').length;
+  
+  const countTidakCukupInfo = COMPANIES.filter((c) => c.status === 'tidak_cukup_info').length;
+  const countNetral = COMPANIES.filter((c) => c.status === 'netral').length;
+  const countBlacklist = COMPANIES.filter((c) => c.status === 'blacklist').length;
+
+  // 2. Fetch pending agreements and join with PMI & Company names
+  const pendingAgreementsList = AGREEMENTS.filter((a) => a.status === 'menunggu')
+    .slice(0, 5) // Limit to top 5
+    .map((a) => {
+      const pmi = PMIS.find((p) => p.id === a.pmiId);
+      const company = COMPANIES.find((c) => c.id === a.companyId);
+      return {
+        id: a.id,
+        pmiName: pmi ? pmi.nama : 'Unknown PMI',
+        companyName: company ? company.nama : 'Unknown Company',
+        posisi: a.posisi,
+        tglPengajuan: a.tglPengajuan,
+      };
+    });
+
+  // 3. Companies with most cases (limit to top 5)
+  const topCompaniesWithCases = COMPANIES.map((company) => {
+    const totalCasesCount = CASES.filter((c) => c.companyId === company.id).length;
+    return {
+      ...company,
+      totalCasesCount,
+    };
+  })
+    .filter((c) => c.totalCasesCount > 0)
+    .sort((a, b) => b.totalCasesCount - a.totalCasesCount)
+    .slice(0, 3);
+
+  // Bar heights mapping to case counts per month (mock trend matching the screenshot)
   const chartData = [
     { label: 'Jan', value: 450 },
     { label: 'Feb', value: 450 },
@@ -27,24 +61,24 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="space-y-6 text-[#1d2327]">
+    <div className="space-y-6 text-[#1d2327] font-normal">
       {/* 3 Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
         
         {/* Card 1: Laporan Kasus */}
-        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[150px] shadow-sm">
+        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[145px] shadow-none rounded-none">
           <div>
-            <h3 className="text-[13px] font-bold text-[#5b6474] uppercase tracking-wider">
+            <h3 className="text-[13px] font-semibold text-[#5b6474] uppercase tracking-wider">
               Laporan Menunggu Tinjauan
             </h3>
-            <span className="text-[36px] font-extrabold text-[#1d2327] block mt-2">
-              50
+            <span className="text-[36px] font-bold text-[#1d2327] block mt-1.5 leading-none">
+              {pendingCasesCount}
             </span>
           </div>
           <div className="text-right">
             <Link
               href="/admin/case-reviews"
-              className="text-[#1f5aa8] hover:text-[#163f78] text-[12px] font-bold underline transition-colors"
+              className="text-[#1f5aa8] hover:text-[#163f78] text-[12.5px] font-bold underline transition-colors"
             >
               Akses Halaman
             </Link>
@@ -52,19 +86,19 @@ export default function DashboardPage() {
         </div>
 
         {/* Card 2: Perjanjian Kerja */}
-        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[150px] shadow-sm">
+        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[145px] shadow-none rounded-none">
           <div>
-            <h3 className="text-[13px] font-bold text-[#5b6474] uppercase tracking-wider">
+            <h3 className="text-[13px] font-semibold text-[#5b6474] uppercase tracking-wider">
               Perjanjian Menunggu Keputusan
             </h3>
-            <span className="text-[36px] font-extrabold text-[#1d2327] block mt-2">
-              50
+            <span className="text-[36px] font-bold text-[#1d2327] block mt-1.5 leading-none">
+              {pendingAgreementsCount}
             </span>
           </div>
           <div className="text-right">
             <Link
               href="/admin/contract-reviews"
-              className="text-[#1f5aa8] hover:text-[#163f78] text-[12px] font-bold underline transition-colors"
+              className="text-[#1f5aa8] hover:text-[#163f78] text-[12.5px] font-bold underline transition-colors"
             >
               Akses Halaman
             </Link>
@@ -72,32 +106,32 @@ export default function DashboardPage() {
         </div>
 
         {/* Card 3: Ringkasan Perusahaan */}
-        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[150px] shadow-sm">
+        <div className="bg-white border border-[#ccd0d4] p-5 flex flex-col justify-between h-[145px] shadow-none rounded-none">
           <div>
-            <h3 className="text-[13px] font-bold text-[#5b6474] uppercase tracking-wider">
+            <h3 className="text-[13px] font-semibold text-[#5b6474] uppercase tracking-wider">
               Ringkasan Status Perusahaan
             </h3>
             
             {/* Status breakdown preview matching template style */}
-            <div className="flex gap-4 mt-3 text-[12px] font-semibold">
+            <div className="flex gap-4 mt-3 text-[12.5px] font-normal">
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#8a97a6]" />
-                <span className="text-zinc-500">TCI: 12</span>
+                <span className="w-2 h-2 rounded-full bg-[#8a97a6] inline-block" />
+                <span className="text-zinc-600">TCI: {countTidakCukupInfo}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1ea34f]" />
-                <span className="text-zinc-500">Netral: 45</span>
+                <span className="w-2 h-2 rounded-full bg-[#1ea34f] inline-block" />
+                <span className="text-zinc-600">Netral: {countNetral}</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#d33a2c]" />
-                <span className="text-zinc-500">Blacklist: 8</span>
+                <span className="w-2 h-2 rounded-full bg-[#d33a2c] inline-block" />
+                <span className="text-zinc-600">Blacklist: {countBlacklist}</span>
               </div>
             </div>
           </div>
           <div className="text-right">
             <Link
               href="/admin/companies"
-              className="text-[#1f5aa8] hover:text-[#163f78] text-[12px] font-bold underline transition-colors"
+              className="text-[#1f5aa8] hover:text-[#163f78] text-[12.5px] font-bold underline transition-colors"
             >
               Akses Halaman
             </Link>
@@ -107,7 +141,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Case Reporting Trend Bar Chart */}
-      <div className="bg-white border border-[#ccd0d4] shadow-sm">
+      <div className="bg-white border border-[#ccd0d4] shadow-none rounded-none">
         {/* Chart Header */}
         <div className="px-5 py-4 border-b border-[#ccd0d4] flex items-center justify-between">
           <h3 className="text-[14px] font-bold text-[#1d2327] flex items-center gap-1">
@@ -188,7 +222,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
         
         {/* Lower Left Column: Table of Pending Contract Reviews */}
-        <div className="lg:col-span-8 bg-white border border-[#ccd0d4] shadow-sm">
+        <div className="lg:col-span-8 bg-white border border-[#ccd0d4] shadow-none rounded-none">
           <div className="px-5 py-4 border-b border-[#ccd0d4] flex items-center justify-between">
             <h3 className="text-[14px] font-bold text-[#1d2327] flex items-center gap-1">
               Perjanjian Kerja Menunggu Keputusan
@@ -197,48 +231,49 @@ export default function DashboardPage() {
           </div>
           
           <div className="overflow-x-auto">
-            <table className="w-full border-collapse text-left text-[13px]">
-              <thead>
-                <tr className="bg-[#f6f7f7] border-b border-[#ccd0d4] text-[11px] font-bold text-[#5b6474] uppercase tracking-wider select-none">
-                  <th className="px-5 py-3">Nama Pekerja</th>
-                  <th className="px-5 py-3">Perusahaan</th>
-                  <th className="px-5 py-3">Pekerjaan</th>
-                  <th className="px-5 py-3">Tgl Pengajuan</th>
-                  <th className="px-5 py-3">Aksi</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-[#e5e5e5]">
-                {pendingContracts.map((contract, index) => (
-                  <tr key={index} className="hover:bg-zinc-50/50">
-                    <td className="px-5 py-3.5 font-bold text-[#1f5aa8]">
-                      {contract.name}
-                    </td>
-                    <td className="px-5 py-3.5 font-semibold text-[#1d2327]">
-                      {contract.company}
-                    </td>
-                    <td className="px-5 py-3.5 text-zinc-500">
-                      {contract.job}
-                    </td>
-                    <td className="px-5 py-3.5 text-zinc-500 font-medium">
-                      {contract.date}
-                    </td>
-                    <td className="px-5 py-3.5">
-                      <Link
-                        href={`/admin/contract-reviews/${index + 1}`}
-                        className="text-[#1f5aa8] hover:text-[#163f78] underline font-bold"
-                      >
-                        Tinjau
-                      </Link>
-                    </td>
+            {pendingAgreementsList.length === 0 ? (
+              <div className="p-5 text-center text-zinc-500 text-[13px] italic">
+                Tidak ada perjanjian kerja yang menunggu keputusan.
+              </div>
+            ) : (
+              <table className="w-full border-collapse text-left text-[13px]">
+                <thead>
+                  <tr className="bg-[#f6f7f7] border-b border-[#ccd0d4] text-[11px] font-bold text-[#5b6474] select-none">
+                    <th className="px-5 py-3">Nama Pekerja</th>
+                    <th className="px-5 py-3">Perusahaan</th>
+                    <th className="px-5 py-3">Pekerjaan</th>
+                    <th className="px-5 py-3">Tgl Pengajuan</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="divide-y divide-[#e5e5e5] font-normal">
+                  {pendingAgreementsList.map((contract) => (
+                    <tr
+                      key={contract.id}
+                      onClick={() => router.push(`/admin/contract-reviews/${contract.id}`)}
+                      className="hover:bg-[#f6f7f7]/60 cursor-pointer transition-colors duration-75"
+                    >
+                      <td className="px-5 py-3.5 font-semibold text-[#1f5aa8] hover:underline">
+                        {contract.pmiName}
+                      </td>
+                      <td className="px-5 py-3.5 text-zinc-750">
+                        {contract.companyName}
+                      </td>
+                      <td className="px-5 py-3.5 text-zinc-500">
+                        {contract.posisi}
+                      </td>
+                      <td className="px-5 py-3.5 text-zinc-500">
+                        {contract.tglPengajuan}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
 
         {/* Lower Right Column: placeholder list for top companies */}
-        <div className="lg:col-span-4 bg-white border border-[#ccd0d4] shadow-sm">
+        <div className="lg:col-span-4 bg-white border border-[#ccd0d4] shadow-none rounded-none">
           <div className="px-5 py-4 border-b border-[#ccd0d4] flex items-center justify-between">
             <h3 className="text-[14px] font-bold text-[#1d2327] flex items-center gap-1">
               Perusahaan dengan Kasus Terbanyak
@@ -247,27 +282,35 @@ export default function DashboardPage() {
           </div>
           
           <div className="p-5 space-y-4">
-            <div className="text-[12px] text-zinc-400 italic">
-              Daftar perusahaan dengan akumulasi aduan terbanyak dari PMI akan ditampilkan di sini setelah integrasi database selesai.
-            </div>
-            
-            {/* Display simple placeholder list cards */}
-            <div className="space-y-3">
-              <div className="border border-zinc-100 p-3 flex justify-between items-center rounded-sm">
-                <div>
-                  <h4 className="font-bold text-[13px] text-zinc-700">PT. Penempatan Bermasalah A</h4>
-                  <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-sm bg-red-50 text-red-500 border border-red-100">Blacklist</span>
-                </div>
-                <span className="font-extrabold text-sm text-zinc-600">12 Kasus</span>
+            {topCompaniesWithCases.length === 0 ? (
+              <div className="text-[12px] text-zinc-400 italic">
+                Belum ada laporan kasus yang tercatat terhadap perusahaan mana pun.
               </div>
-              <div className="border border-zinc-100 p-3 flex justify-between items-center rounded-sm">
-                <div>
-                  <h4 className="font-bold text-[13px] text-zinc-700">PT. Agensi Penempatan B</h4>
-                  <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-sm bg-amber-50 text-amber-600 border border-amber-100">Netral</span>
-                </div>
-                <span className="font-extrabold text-sm text-zinc-600">5 Kasus</span>
+            ) : (
+              <div className="space-y-3">
+                {topCompaniesWithCases.map((company) => (
+                  <div key={company.id} className="border border-zinc-200 p-3 flex justify-between items-center rounded-none bg-white">
+                    <div>
+                      <h4 className="font-semibold text-[13px] text-zinc-800 hover:text-[#1f5aa8]">
+                        <Link href={`/admin/companies/${company.id}`}>{company.nama}</Link>
+                      </h4>
+                      <span className={`text-[9px] font-bold uppercase px-1.5 py-0.5 rounded-none border mt-1 inline-block ${
+                        company.status === 'blacklist'
+                          ? 'bg-red-50 text-red-500 border-red-100'
+                          : company.status === 'netral'
+                          ? 'bg-green-50 text-green-600 border-green-100'
+                          : 'bg-zinc-50 text-zinc-500 border-zinc-100'
+                      }`}>
+                        {company.status === 'tidak_cukup_info' ? 'Tidak Cukup Info' : company.status}
+                      </span>
+                    </div>
+                    <span className="font-bold text-xs text-zinc-500">
+                      {company.totalCasesCount} Kasus
+                    </span>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
           </div>
         </div>
 

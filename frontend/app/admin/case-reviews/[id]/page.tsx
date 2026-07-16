@@ -1,4 +1,7 @@
 import React from 'react';
+import { notFound } from 'next/navigation';
+import { CASES, COMPANIES, PMIS } from '@/lib/mockData';
+import CaseReviewDetailClient from './CaseReviewDetailClient';
 
 interface PageProps {
   params: Promise<{ id: string }>;
@@ -7,14 +10,30 @@ interface PageProps {
 export default async function CaseReviewDetailPage({ params }: PageProps) {
   const { id } = await params;
 
+  // Look up target case in the mock dataset
+  const caseItem = CASES.find((c) => c.id === id);
+  if (!caseItem) {
+    notFound();
+  }
+
+  const pmi = PMIS.find((p) => p.id === caseItem.pmiId);
+  const company = COMPANIES.find((c) => c.id === caseItem.companyId);
+
+  // Find other cases under the same company
+  const relatedCases = CASES.filter((c) => c.companyId === caseItem.companyId && c.id !== caseItem.id).map((c) => ({
+    id: c.id,
+    jenis: c.jenis,
+    tglKejadian: c.tglKejadian,
+    statusTinjauan: c.statusTinjauan,
+    keputusan: c.keputusan,
+  }));
+
   return (
-    <div className="bg-white border border-[#ccd0d4] p-5 shadow-sm">
-      <h2 className="text-[16px] font-bold text-[#1d2327] mb-2">
-        Detail Laporan Kasus: #{id}
-      </h2>
-      <p className="text-zinc-600 text-[13px]">
-        Ini adalah halaman rincian untuk laporan kasus dengan ID <strong>{id}</strong>. Fitur peninjauan dan perubahan status perusahaan terkait akan tersedia di sini pada fase berikutnya.
-      </p>
-    </div>
+    <CaseReviewDetailClient
+      caseItem={caseItem}
+      pmi={pmi}
+      company={company}
+      relatedCases={relatedCases}
+    />
   );
 }
