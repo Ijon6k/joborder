@@ -1,0 +1,450 @@
+{
+  "pmi": [
+    { "id": "p1", "nama": "Siti Aminah", "nik": "3201014503990001", "statusAkun": "Aktif" },
+    { "id": "p2", "nama": "Budi Santoso", "nik": "3273021207950002", "statusAkun": "Aktif" },
+    { "id": "p3", "nama": "Rina Wulandari", "nik": "3175056801980003", "statusAkun": "Aktif" },
+    { "id": "p4", "nama": "Ahmad Fauzi", "nik": "3202091103920004", "statusAkun": "Aktif" },
+    { "id": "p5", "nama": "Dewi Lestari", "nik": "3374024506970005", "statusAkun": "Aktif" },
+    { "id": "p6", "nama": "Joko Prasetyo", "nik": "3515107809930006", "statusAkun": "Aktif" },
+    { "id": "p7", "nama": "Nur Halimah", "nik": "3671035102990007", "statusAkun": "Aktif" },
+    { "id": "p8", "nama": "Agus Setiawan", "nik": "3210081405940008", "statusAkun": "Aktif" },
+    { "id": "p9", "nama": "Yuni Kartika", "nik": "3276046709960009", "statusAkun": "Aktif" },
+    { "id": "p10", "nama": "Bambang Wibowo", "nik": "3324052310910010", "statusAkun": "Aktif" },
+    { "id": "p11", "nama": "Sri Rahayu", "nik": "3171016204990011", "statusAkun": "Aktif" },
+    { "id": "p12", "nama": "Hendra Gunawan", "nik": "3578097711950012", "statusAkun": "Aktif" },
+    { "id": "p13", "nama": "Fitriani", "nik": "3204034408970013", "statusAkun": "Aktif" },
+    { "id": "p14", "nama": "Rudi Hartono", "nik": "3312062906920014", "statusAkun": "Aktif" },
+    { "id": "p15", "nama": "Wahyuni", "nik": "3671098013990015", "statusAkun": "Aktif" }
+  ],
+  "companies": [
+    {
+      "id": "c1",
+      "nama": "PT Cahaya Abadi Sejahtera",
+      "nib": "1234567890123",
+      "sip3mi": "SIP3MI-014/2021",
+      "status": "blacklist",
+      "statusLog": [
+        {
+          "timestamp": "2 April 2026, 14:20",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Blacklist",
+          "alasan": "Laporan kekerasan fisik telah ditinjau dan diputuskan tidak dapat ditoleransi. Perusahaan dinyatakan blacklist hingga ada perbaikan."
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "nama": "PT Mitra Kerja Nusantara",
+      "nib": "2234567890124",
+      "sip3mi": "SIP3MI-027/2020",
+      "status": "netral",
+      "statusLog": [
+        {
+          "timestamp": "30 Mei 2026, 15:00",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Netral",
+          "alasan": "Laporan keterlambatan gaji telah diselesaikan perusahaan dan dinyatakan tertoleransi."
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "nama": "PT Global Prima Tenaga",
+      "nib": "3234567890125",
+      "sip3mi": "SIP3MI-041/2022",
+      "status": "tidak_cukup_info",
+      "statusLog": []
+    },
+    {
+      "id": "c4",
+      "nama": "PT Sinar Harapan Migran",
+      "nib": "4234567890126",
+      "sip3mi": "SIP3MI-052/2019",
+      "status": "netral",
+      "statusLog": [
+        {
+          "timestamp": "18 April 2026, 10:40",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Netral",
+          "alasan": "Laporan dokumen ditahan terbukti kesalahan administratif dan telah diselesaikan."
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "nama": "PT Bintang Timur Perkasa",
+      "nib": "5234567890127",
+      "sip3mi": "SIP3MI-063/2021",
+      "status": "blacklist",
+      "statusLog": [
+        {
+          "timestamp": "20 April 2026, 10:05",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Blacklist",
+          "alasan": "Indikasi kuat perdagangan manusia telah dikonfirmasi melalui tinjauan laporan."
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "nama": "PT Karya Utama Mandiri",
+      "nib": "6234567890128",
+      "sip3mi": "SIP3MI-074/2023",
+      "status": "tidak_cukup_info",
+      "statusLog": []
+    },
+    {
+      "id": "c7",
+      "nama": "PT Duta Tenaga Internasional",
+      "nib": "7234567890129",
+      "sip3mi": "SIP3MI-085/2020",
+      "status": "netral",
+      "statusLog": [
+        {
+          "timestamp": "28 Mei 2026, 09:20",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Netral",
+          "alasan": "Kondisi kerja telah diperbaiki melalui mediasi; laporan dinyatakan tertoleransi."
+        }
+      ]
+    },
+    {
+      "id": "c8",
+      "nama": "PT Anugerah Jaya Abadi",
+      "nib": "8234567890130",
+      "sip3mi": "SIP3MI-096/2018",
+      "status": "blacklist",
+      "statusLog": [
+        {
+          "timestamp": "5 Maret 2026, 09:30",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Blacklist",
+          "alasan": "Kondisi kerja tidak layak terbukti melalui tinjauan laporan dan dokumen pendukung."
+        }
+      ]
+    },
+    {
+      "id": "c9",
+      "nama": "PT Mega Sukses Bersama",
+      "nib": "9234567890131",
+      "sip3mi": "SIP3MI-107/2023",
+      "status": "tidak_cukup_info",
+      "statusLog": []
+    },
+    {
+      "id": "c10",
+      "nama": "PT Harapan Bangsa Sejati",
+      "nib": "1034567890132",
+      "sip3mi": "SIP3MI-118/2021",
+      "status": "netral",
+      "statusLog": [
+        {
+          "timestamp": "2 Juli 2026, 14:10",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Netral",
+          "alasan": "Kasus merupakan miskomunikasi administratif yang telah diklarifikasi kedua pihak."
+        }
+      ]
+    },
+    {
+      "id": "c11",
+      "nama": "PT Sumber Rezeki Utama",
+      "nib": "1134567890133",
+      "sip3mi": "SIP3MI-129/2019",
+      "status": "blacklist",
+      "statusLog": [
+        {
+          "timestamp": "10 Februari 2026, 11:15",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Blacklist",
+          "alasan": "Kekerasan fisik dikonfirmasi dengan bukti dan kesaksian konsisten dari beberapa PMI."
+        }
+      ]
+    },
+    {
+      "id": "c12",
+      "nama": "PT Persada Karya Mandiri",
+      "nib": "1234567890134",
+      "sip3mi": "SIP3MI-140/2022",
+      "status": "tidak_cukup_info",
+      "statusLog": []
+    },
+    {
+      "id": "c13",
+      "nama": "PT Cipta Kerja Sentosa",
+      "nib": "1334567890135",
+      "sip3mi": "SIP3MI-151/2020",
+      "status": "netral",
+      "statusLog": [
+        {
+          "timestamp": "10 April 2026, 16:05",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Netral",
+          "alasan": "Gaji telah dibayarkan penuh sesuai kesepakatan mediasi."
+        }
+      ]
+    },
+    {
+      "id": "c14",
+      "nama": "PT Nusantara Jaya Abadi",
+      "nib": "1434567890136",
+      "sip3mi": "SIP3MI-162/2017",
+      "status": "blacklist",
+      "statusLog": [
+        {
+          "timestamp": "25 Maret 2026, 13:50",
+          "admin": "Admin BP2MI",
+          "before": "Tidak Cukup Info",
+          "after": "Blacklist",
+          "alasan": "Indikasi perdagangan manusia dikonfirmasi melalui tinjauan laporan."
+        }
+      ]
+    },
+    {
+      "id": "c15",
+      "nama": "PT Bumi Sejahtera Mandiri",
+      "nib": "1534567890137",
+      "sip3mi": "SIP3MI-173/2023",
+      "status": "tidak_cukup_info",
+      "statusLog": []
+    }
+  ],
+  "cases": [
+    {
+      "id": "k1",
+      "companyId": "c1",
+      "pmiId": "p1",
+      "jenis": "Kekerasan fisik",
+      "tglKejadian": "10 Maret 2026",
+      "tglLapor": "15 Maret 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tidak_toleransi",
+      "tglDiputuskan": "2 April 2026",
+      "catatanKeputusan": "Bukti foto dan kesaksian PMI menunjukkan kekerasan fisik berulang oleh pihak majikan. Laporan cukup kuat untuk ditindaklanjuti sebagai kasus tidak dapat ditoleransi.",
+      "deskripsi": "PMI mengalami pemukulan oleh majikan sebanyak dua kali dalam sebulan terakhir. Terdapat luka memar di lengan dan kaki. PMI sudah melapor ke KBRI setempat sebelum kasus ini masuk ke SIPELMI.",
+      "lampiran": [{ "nama": "foto_luka_lengan.jpg" }, { "nama": "foto_luka_kaki.jpg" }, { "nama": "surat_pengaduan_kbri.pdf" }]
+    },
+    {
+      "id": "k2",
+      "companyId": "c1",
+      "pmiId": "p2",
+      "jenis": "Dokumen ditahan",
+      "tglKejadian": "20 Juni 2026",
+      "tglLapor": "25 Juni 2026",
+      "statusTinjauan": "menunggu",
+      "keputusan": null,
+      "tglDiputuskan": null,
+      "catatanKeputusan": "",
+      "deskripsi": "PMI melaporkan paspor dan KTKLN ditahan oleh agen penyalur sejak kedatangan, sehingga tidak bisa berpindah kerja meski kontrak sudah selesai.",
+      "lampiran": [{ "nama": "surat_pengaduan.pdf" }]
+    },
+    {
+      "id": "k3",
+      "companyId": "c5",
+      "pmiId": "p3",
+      "jenis": "Perdagangan manusia",
+      "tglKejadian": "5 April 2026",
+      "tglLapor": "9 April 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tidak_toleransi",
+      "tglDiputuskan": "20 April 2026",
+      "catatanKeputusan": "Pola pemindahan paksa dan penahanan paspor sesuai indikasi TPPO. Perusahaan direkomendasikan untuk ditindak tegas.",
+      "deskripsi": "PMI dipindahkan ke majikan lain tanpa persetujuan dan tanpa dokumen resmi, disertai ancaman jika menolak. Diduga kuat merupakan indikasi perdagangan manusia.",
+      "lampiran": [{ "nama": "rekaman_audio.mp3" }, { "nama": "kronologi_kejadian.pdf" }]
+    },
+    {
+      "id": "k4",
+      "companyId": "c5",
+      "pmiId": "p4",
+      "jenis": "Gaji tidak dibayar/telat",
+      "tglKejadian": "1 Juli 2026",
+      "tglLapor": "3 Juli 2026",
+      "statusTinjauan": "menunggu",
+      "keputusan": null,
+      "tglDiputuskan": null,
+      "catatanKeputusan": "",
+      "deskripsi": "Gaji dua bulan terakhir belum dibayarkan. Perusahaan beralasan menunggu pencairan dari klien, namun tidak ada kejelasan waktu.",
+      "lampiran": [{ "nama": "slip_gaji_terakhir.jpg" }]
+    },
+    {
+      "id": "k5",
+      "companyId": "c8",
+      "pmiId": "p5",
+      "jenis": "Kondisi kerja tidak layak",
+      "tglKejadian": "12 Februari 2026",
+      "tglLapor": "18 Februari 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tidak_toleransi",
+      "tglDiputuskan": "5 Maret 2026",
+      "catatanKeputusan": "Kondisi tempat tinggal dan jam kerja tidak memenuhi standar minimum yang disepakati dalam perjanjian kerja.",
+      "deskripsi": "PMI tinggal di ruangan tanpa ventilasi bersama 8 pekerja lain, dengan jam kerja rata-rata 16 jam tanpa hari libur.",
+      "lampiran": [{ "nama": "foto_tempat_tinggal.jpg" }]
+    },
+    {
+      "id": "k6",
+      "companyId": "c11",
+      "pmiId": "p6",
+      "jenis": "Kekerasan fisik",
+      "tglKejadian": "22 Januari 2026",
+      "tglLapor": "28 Januari 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tidak_toleransi",
+      "tglDiputuskan": "10 Februari 2026",
+      "catatanKeputusan": "Terdapat luka fisik yang terdokumentasi dan kesaksian konsisten dari PMI lain di perusahaan yang sama.",
+      "deskripsi": "PMI mengalami kekerasan fisik dari anggota keluarga majikan. Terdapat kesaksian dari dua PMI lain di alamat penempatan yang sama.",
+      "lampiran": [{ "nama": "foto_luka.jpg" }, { "nama": "surat_kesaksian.pdf" }]
+    },
+    {
+      "id": "k7",
+      "companyId": "c14",
+      "pmiId": "p7",
+      "jenis": "Perdagangan manusia",
+      "tglKejadian": "3 Maret 2026",
+      "tglLapor": "8 Maret 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tidak_toleransi",
+      "tglDiputuskan": "25 Maret 2026",
+      "catatanKeputusan": "Indikasi kuat perdagangan manusia berdasarkan pola rekrutmen dan penahanan dokumen identitas.",
+      "deskripsi": "PMI direkrut dengan janji posisi berbeda dari kenyataan, dokumen identitas ditahan, dan tidak diberi akses komunikasi keluar.",
+      "lampiran": [{ "nama": "kronologi_kejadian.pdf" }]
+    },
+    {
+      "id": "k8",
+      "companyId": "c2",
+      "pmiId": "p8",
+      "jenis": "Gaji tidak dibayar/telat",
+      "tglKejadian": "14 Mei 2026",
+      "tglLapor": "16 Mei 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tertoleransi",
+      "tglDiputuskan": "30 Mei 2026",
+      "catatanKeputusan": "Keterlambatan gaji sudah diselesaikan perusahaan dengan pembayaran penuh dan permintaan maaf resmi.",
+      "deskripsi": "Gaji bulan Maret dan April terlambat dibayarkan lebih dari tiga minggu tanpa pemberitahuan sebelumnya kepada PMI.",
+      "lampiran": [{ "nama": "bukti_transfer.jpg" }]
+    },
+    {
+      "id": "k9",
+      "companyId": "c4",
+      "pmiId": "p9",
+      "jenis": "Dokumen ditahan",
+      "tglKejadian": "2 April 2026",
+      "tglLapor": "6 April 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tertoleransi",
+      "tglDiputuskan": "18 April 2026",
+      "catatanKeputusan": "Dokumen telah dikembalikan kepada PMI dan perusahaan menyatakan kesalahan administratif, bukan penahanan sengaja.",
+      "deskripsi": "Dokumen paspor sempat ditahan pihak agen selama proses perpanjangan izin kerja, menyebabkan kekhawatiran PMI.",
+      "lampiran": [{ "nama": "surat_pengaduan.pdf" }]
+    },
+    {
+      "id": "k10",
+      "companyId": "c7",
+      "pmiId": "p10",
+      "jenis": "Kondisi kerja tidak layak",
+      "tglKejadian": "9 Mei 2026",
+      "tglLapor": "12 Mei 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tertoleransi",
+      "tglDiputuskan": "28 Mei 2026",
+      "catatanKeputusan": "Kondisi kerja telah diperbaiki setelah mediasi; PMI menyatakan puas dengan penyelesaian.",
+      "deskripsi": "PMI mengeluhkan jam kerja berlebihan tanpa kompensasi lembur sesuai kontrak kerja yang disepakati.",
+      "lampiran": [{ "nama": "catatan_jam_kerja.jpg" }]
+    },
+    {
+      "id": "k11",
+      "companyId": "c10",
+      "pmiId": "p11",
+      "jenis": "Lainnya",
+      "tglKejadian": "15 Juni 2026",
+      "tglLapor": "18 Juni 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tertoleransi",
+      "tglDiputuskan": "2 Juli 2026",
+      "catatanKeputusan": "Kasus merupakan miskomunikasi administratif, telah diklarifikasi kedua pihak.",
+      "deskripsi": "Terjadi kesalahpahaman terkait potongan gaji untuk biaya penempatan yang tidak dijelaskan sejak awal.",
+      "lampiran": [{ "nama": "surat_klarifikasi.pdf" }]
+    },
+    {
+      "id": "k12",
+      "companyId": "c13",
+      "pmiId": "p12",
+      "jenis": "Gaji tidak dibayar/telat",
+      "tglKejadian": "20 Maret 2026",
+      "tglLapor": "24 Maret 2026",
+      "statusTinjauan": "ditinjau",
+      "keputusan": "tertoleransi",
+      "tglDiputuskan": "10 April 2026",
+      "catatanKeputusan": "Gaji telah dibayarkan penuh beserta denda keterlambatan sesuai kesepakatan mediasi.",
+      "deskripsi": "Gaji bulan berjalan terlambat dibayarkan karena keterlambatan transfer dari pemberi kerja ke agen penyalur.",
+      "lampiran": [{ "nama": "bukti_transfer.jpg" }]
+    },
+    {
+      "id": "k13",
+      "companyId": "c3",
+      "pmiId": "p13",
+      "jenis": "Dokumen ditahan",
+      "tglKejadian": "28 Juni 2026",
+      "tglLapor": "1 Juli 2026",
+      "statusTinjauan": "menunggu",
+      "keputusan": null,
+      "tglDiputuskan": null,
+      "catatanKeputusan": "",
+      "deskripsi": "PMI melaporkan dokumen kontrak kerja belum dikembalikan sejak penandatanganan tiga bulan lalu.",
+      "lampiran": [{ "nama": "surat_pengaduan.pdf" }]
+    },
+    {
+      "id": "k14",
+      "companyId": "c6",
+      "pmiId": "p14",
+      "jenis": "Kekerasan fisik",
+      "tglKejadian": "5 Juli 2026",
+      "tglLapor": "8 Juli 2026",
+      "statusTinjauan": "menunggu",
+      "keputusan": null,
+      "tglDiputuskan": null,
+      "catatanKeputusan": "",
+      "deskripsi": "PMI mengaku mendapat perlakuan kasar secara verbal dari pengawas kerja, namun belum ada bukti fisik pendukung.",
+      "lampiran": []
+    },
+    {
+      "id": "k15",
+      "companyId": "c9",
+      "pmiId": "p15",
+      "jenis": "Gaji tidak dibayar/telat",
+      "tglKejadian": "10 Juli 2026",
+      "tglLapor": "13 Juli 2026",
+      "statusTinjauan": "menunggu",
+      "keputusan": null,
+      "tglDiputuskan": null,
+      "catatanKeputusan": "",
+      "deskripsi": "Gaji bulan ini belum diterima PMI, perusahaan menyatakan masih dalam proses administrasi bank.",
+      "lampiran": [{ "nama": "slip_gaji_terakhir.jpg" }]
+    }
+  ],
+  "agreements": [
+    { "id": "a1", "pmiId": "p1", "companyId": "c1", "posisi": "Asisten Rumah Tangga", "negara": "Arab Saudi", "tglPengajuan": "1 Juli 2026", "status": "menunggu", "catatan": "" },
+    { "id": "a2", "pmiId": "p2", "companyId": "c5", "posisi": "Pekerja Perkebunan", "negara": "Malaysia", "tglPengajuan": "3 Juli 2026", "status": "menunggu", "catatan": "" },
+    { "id": "a3", "pmiId": "p3", "companyId": "c8", "posisi": "Perawat Lansia", "negara": "Taiwan", "tglPengajuan": "12 Juni 2026", "status": "disetujui", "catatan": "Bukti klarifikasi perusahaan cukup, PMI paham risiko dan tetap ingin melanjutkan; disetujui dengan pengawasan ketat." },
+    { "id": "a4", "pmiId": "p4", "companyId": "c11", "posisi": "Pekerja Pabrik", "negara": "Korea Selatan", "tglPengajuan": "15 Juni 2026", "status": "ditolak", "catatan": "Risiko tinggi berdasarkan riwayat perdagangan manusia; ditolak demi keselamatan PMI." },
+    { "id": "a5", "pmiId": "p5", "companyId": "c14", "posisi": "Juru Masak", "negara": "Hong Kong", "tglPengajuan": "8 Juli 2026", "status": "menunggu", "catatan": "" },
+    { "id": "a6", "pmiId": "p6", "companyId": "c1", "posisi": "Pengasuh Anak", "negara": "Arab Saudi", "tglPengajuan": "20 Mei 2026", "status": "ditolak", "catatan": "Perusahaan masih dalam status blacklist aktif, belum ada perbaikan." },
+    { "id": "a7", "pmiId": "p7", "companyId": "c2", "posisi": "Asisten Rumah Tangga", "negara": "Singapura", "tglPengajuan": "2 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a8", "pmiId": "p8", "companyId": "c4", "posisi": "Pekerja Restoran", "negara": "Jepang", "tglPengajuan": "25 Mei 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a9", "pmiId": "p9", "companyId": "c7", "posisi": "Perawat Lansia", "negara": "Taiwan", "tglPengajuan": "10 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a10", "pmiId": "p10", "companyId": "c3", "posisi": "Pekerja Perkebunan", "negara": "Malaysia", "tglPengajuan": "14 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a11", "pmiId": "p11", "companyId": "c6", "posisi": "Asisten Rumah Tangga", "negara": "Arab Saudi", "tglPengajuan": "19 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a12", "pmiId": "p12", "companyId": "c10", "posisi": "Juru Masak", "negara": "Hong Kong", "tglPengajuan": "22 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a13", "pmiId": "p13", "companyId": "c5", "posisi": "Pekerja Pabrik", "negara": "Korea Selatan", "tglPengajuan": "10 Juli 2026", "status": "menunggu", "catatan": "" },
+    { "id": "a14", "pmiId": "p14", "companyId": "c9", "posisi": "Pengasuh Anak", "negara": "Singapura", "tglPengajuan": "27 Juni 2026", "status": "otomatis", "catatan": "" },
+    { "id": "a15", "pmiId": "p15", "companyId": "c14", "posisi": "Perawat Lansia", "negara": "Taiwan", "tglPengajuan": "5 Juni 2026", "status": "disetujui", "catatan": "PMI berpengalaman dan telah menandatangani pernyataan risiko; disetujui." }
+  ]
+}
